@@ -21,7 +21,23 @@ function MovieDetails({ movie, onClose }){
                         </div>
                         <div className="md-details">
                             <h2>{movie.title}</h2>
-                            <p className="md-sub">{movie.tagline || movie.original_title} • {formatReleaseDate(movie.release_date)}</p>
+                            <div className="md-sub">
+                                {movie.original_title && movie.original_title !== movie.title && (
+                                    <>
+                                        <span className="md-original">{movie.original_title}</span>
+                                        <span className="md-sep">•</span>
+                                    </>
+                                )}
+
+                                {movie.adult && (
+                                    <>
+                                        <span className="md-adult-badge" title="Adult">18+</span>
+                                        <span className="md-sep">•</span>
+                                    </>
+                                )}
+
+                                <span className="md-release">{formatReleaseDate(movie.release_date)}</span>
+                            </div>
                             <p className="md-overview">{movie.overview}</p>
 
                             <div className="md-meta">
