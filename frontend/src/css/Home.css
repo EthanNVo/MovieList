@@ -61,3 +61,42 @@
   width: 100%;
   box-sizing: border-box;
 }
+
+/* Category sections (horizontal carousels) */
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1rem 1rem;
+}
+
+.section {
+  background: transparent;
+}
+
+.section-title {
+  color: #fff;
+  margin: 0 0 0.75rem 0;
+  padding-left: 0.5rem;
+}
+
+.section-list {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.5rem;
+  scroll-snap-type: x proximity;
+}
+
+.section-item {
+  flex: 0 0 200px;
+  scroll-snap-align: start;
+}
+
+/* hide default scrollbar on WebKit while keeping scroll available */
+.section-list::-webkit-scrollbar { height: 8px; }
+.section-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 4px; }
+
+@media (max-width: 639px) {
+  .section-item { flex: 0 0 140px; }
+}
